@@ -2,8 +2,11 @@
 #include <stdio.h>
 int main(){
   int *data=(int *)malloc(100*sizeof(int));
-  int *p = data + 50;
-  free(data);
-  printf("Valor data[50]: %d\n", *(p + 50));
+  data += 50;
+  int *f = data;
+  data -= 50;
+  free(f);
+  printf("Valor data[49]: %d\n", *(f + 49));  
+  printf("Valor data[50]: %d\n", *(f + 50));
   return 0;
 }
